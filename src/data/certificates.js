@@ -27,4 +27,32 @@ export const certificates = [
     date: '15 Maret 2026',
     file: '/certificates/Certificate%20Detail%20-%20CODEPOLITAN.pdf',
   },
+  {
+    id: 'revou-coding-camp',
+    title: 'Coding Camp — Sertifikat Kehadiran',
+    issuer: 'RevoU',
+    date: '26 September 2025',
+    file: '/certificates/SECC_lufikaayufatimah_CCSE%20220925-01-1-00009.pdf',
+  },
+  {
+    id: 'code-generations-optimization',
+    title: 'Code Generations and Optimization',
+    issuer: 'Penyelenggara tidak tercantum',
+    date: 'Tanggal tidak tercantum',
+    file: '/certificates/Code%20Generations%20and%20Optimization%20-%20Lufika%20Ayu%20Fatimah.pdf',
+  },
+  {
+    id: 'vinix7-web-dev-ui-ux',
+    title: 'Apresiasi Web Dev UI/UX',
+    issuer: 'VINIX7',
+    date: 'Februari–Juni 2026',
+    file: '/certificates/LufikaAyuFatimah_Sertifikat%20Utama.pdf',
+  },
+  {
+    id: 'ai-productivity-api',
+    title: 'AI Productivity and AI API Integration for Developers',
+    issuer: 'Penyelenggara tidak tercantum',
+    date: '30 Oktober 2025',
+    file: '/certificates/sertifikat-2.pdf',
+  },
 ]
