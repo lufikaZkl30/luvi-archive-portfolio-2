@@ -32,14 +32,15 @@ function App() {
       <div className="topbar-right"><span className="status"><i/> AVAILABLE FOR OPPORTUNITIES</span><button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="Toggle menu">{mobileNav ? <X/> : <Menu/>}</button></div>
     </header>
 
+{/* Utama */}
     <main id="top">
       <section className="hero">
         <div className="hero-index"><span>PERSONAL PORTFOLIO</span><span>001 — 004</span></div>
         <div className="hero-copy">
-          <p className="eyebrow"><Sparkles size={13}/> DESIGN MEETS INTELLIGENCE</p>
+          <p className="eyebrow"><Sparkles size={13}/>DESIGN MEETS INTELLIGENCE</p>
           <h1>Curiosity,<br/><em>filed</em> into form<span className="hero-period">.</span></h1>
           <div className="hero-bottom">
-            <p className="hero-description">I’m Lufika Ayu Fatimah — a Junior AI Engineer & Web Designer exploring thoughtful interfaces, creative code, and human-centered AI.</p>
+            <p className="hero-description">Junior AI Engineer & Web Designer exploring thoughtful interfaces, creative code, and human-centered AI.</p>
             <a href="#archive" className="round-link" aria-label="Explore archive"><ArrowDownRight size={22}/></a>
           </div>
         </div>
@@ -47,6 +48,7 @@ function App() {
         <div className="hero-stamp"><span>DESIGN</span><span>×</span><span>TECH</span><span>×</span><span>HUMAN</span></div>
       </section>
 
+{/* About Section */}
       <section className="about-section" id="about">
         <div className="section-heading">
           <div><p className="eyebrow">/ ABOUT THE AUTHOR</p><h2>A little about me<span>.</span></h2></div>
@@ -59,7 +61,7 @@ function App() {
             <figcaption>FIG. 01 / LUVI</figcaption>
           </figure>
           <div className="about-copy">
-            <p className="eyebrow">HELLO, I’M LUVI</p>
+            <p className="eyebrow">HELLO, I’M LUFIKA AYU FATIMAH</p>
             <p className="about-intro">An Information Technology student exploring the space between thoughtful interfaces and useful AI.</p>
             <p className="about-description">I enjoy turning ideas into digital experiences that feel clear, human, and a little unexpected. From shaping an interface in Figma to bringing it to life on the web, I’m happiest when I’m learning by making.</p>
             <div className="about-tags"><span>UI/UX DESIGN</span><span>FRONTEND</span><span>GENERATIVE AI</span></div>
