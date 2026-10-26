@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { ArrowDownRight, ArrowUpRight, AudioLines, ExternalLink, Github, Menu, Sparkles, X } from 'lucide-react'
 import profilePhoto from './img/lufika.webp'
 import ProjectsGallery from './components/ProjectsGallery'
+import CertificatesGallery from './components/CertificatesGallery'
 import ToolsWorkstation from './components/ToolsWorkstation'
+import { certificates } from './data/certificates'
 import { projects } from './data/projects'
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <a href="#about" onClick={() => setMobileNav(false)}>About</a>
         <a href="#archive" onClick={() => setMobileNav(false)}>Toolkit</a>
         <a href="#work" onClick={() => setMobileNav(false)}>Selected work</a>
+        <a href="#certificates" onClick={() => setMobileNav(false)}>Certificates</a>
         <a href="#contact" onClick={() => setMobileNav(false)}>Contact <ArrowUpRight size={12}/></a>
       </nav>
       <div className="topbar-right"><span className="status"><i/> AVAILABLE FOR OPPORTUNITIES</span><button className="mobile-menu" onClick={() => setMobileNav(!mobileNav)} aria-label="Toggle menu">{mobileNav ? <X/> : <Menu/>}</button></div>
@@ -67,6 +70,8 @@ function App() {
       <ToolsWorkstation />
 
       <ProjectsGallery projects={projects} />
+
+      <CertificatesGallery certificates={certificates} />
 
       <section className="manifesto">
         <div className="manifesto-left"><p className="eyebrow">/ WORKING PRINCIPLE</p><h2>Make it useful.<br/><em>Make it feel.</em></h2></div>
