@@ -9,7 +9,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* ========================================
    2. GLOBAL STYLES
 ======================================== */
@@ -224,8 +223,7 @@ button {
 }
 
 .hero-period,
-.section-heading h2 span,
-.paper-main h3 span {
+.section-heading h2 span {
   color: #8b8c70;
 }
 
@@ -294,7 +292,7 @@ button {
    5. ARCHIVE SECTION & SECTION HEADINGS
 ======================================== */
 
-.archive-section,
+.about-section,
 .work-section {
   padding: 100px 8.4% 75px;
 }
@@ -325,388 +323,109 @@ button {
   max-width: 300px;
 }
 
-
-/* ========================================
-   6. ARCHIVE WORKSPACE & FOLDER TABS
-======================================== */
-
-.archive-workspace {
+.about-card {
   display: grid;
-  grid-template-columns: minmax(250px, 0.76fr) minmax(0, 1.24fr);
-  gap: 0;
-  align-items: stretch;
-  min-height: 440px;
-}
-
-.folder-stack {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 0 25px 0 0;
-  perspective: 900px;
-}
-
-.archive-tab {
-  position: relative;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 84px;
-  margin: 0 0 -1px 0;
-  padding: 13px 20px 13px 22px;
+  grid-template-columns: 0.62fr 0.8fr 1.58fr;
+  min-height: 360px;
   border: 1px solid #a5a395;
-  border-right: 0;
-  border-radius: 3px 0 0 3px;
-  cursor: pointer;
-  transition:
-    transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
-    filter 0.25s,
-    box-shadow 0.25s;
-  transform: translateX(calc(var(--tab-index) * 5px));
-  z-index: calc(10 - var(--tab-index));
-  color: #35362c;
-  box-shadow: 2px 3px 5px #292a2010;
+  background: #eae7dc;
+  box-shadow: 4px 5px 0 rgba(37, 38, 31, 0.08);
 }
 
-.archive-tab::after {
-  content: "";
-  position: absolute;
-  right: -22px;
-  top: -1px;
-  width: 22px;
-  height: calc(100% + 2px);
-  background: inherit;
-  border: 1px solid #a5a395;
-  border-left: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 76%, 0 100%);
-}
-
-.archive-tab:hover {
-  transform: translateX(12px);
-}
-
-.archive-tab.is-active {
-  transform: translateX(18px) scale(1.015);
-  filter: contrast(1.03);
-  box-shadow: 5px 7px 16px #25261f24;
-  z-index: 20;
-}
-
-.tab-paper {
-  background: #eeebdf;
-}
-
-.tab-blue {
-  background: #c4c8c6;
-}
-
-.tab-olive {
-  background: #b9bca8;
-}
-
-.tab-rust {
-  background: #c3a58a;
-}
-
-.tab-black {
-  background: #33352e;
-  color: #eae7dc;
-  border-color: #4c4d44;
-}
-
-.tab-topline {
-  display: flex;
-  justify-content: space-between;
-  font: 9px var(--mono);
-  opacity: 0.75;
-  letter-spacing: 0.06em;
-}
-
-.tab-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.tab-label {
-  font: 600 15px var(--display);
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-}
-
-.tab-number {
-  position: absolute;
-  right: 18px;
-  bottom: 12px;
-  font: 10px var(--mono);
-  opacity: 0.65;
-}
-
-.tab-edge {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  width: 4px;
-  background: #2c2e25;
-  opacity: 0.13;
-}
-
-.stack-base {
-  flex: 1;
-  min-height: 32px;
-  margin-top: 0;
-  background: #a8a997;
-  border: 1px solid #999b8a;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  font: 8px var(--mono);
-  color: #44463a;
-  letter-spacing: 0.06em;
-}
-
-
-/* ========================================
-   7. ARCHIVE PAPER
-======================================== */
-
-.archive-paper {
-  background: #eeebdf;
-  border: 1px solid #c4c1b3;
-  box-shadow: 8px 12px 25px #2a2b2010;
-  min-height: 440px;
+.about-index {
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: 2;
-  transform-origin: left center;
-  animation: paperIn 0.45s cubic-bezier(0.2, 0.75, 0.2, 1) both;
-}
-
-.archive-paper.paper-open {
-  animation: paperIn 0.45s cubic-bezier(0.2, 0.75, 0.2, 1) both;
-}
-
-@keyframes paperIn {
-  from {
-    opacity: 0.5;
-    transform: perspective(1000px) rotateY(-5deg) translateX(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: perspective(1000px) rotateY(0) translateX(0);
-  }
-}
-
-.paper-header,
-.paper-footer {
-  display: flex;
   justify-content: space-between;
-  gap: 12px;
-  padding: 15px 21px;
+  padding: 26px 30px;
+  border-right: 1px solid var(--line);
+  color: #6f7064;
+  font: 9px/1.8 var(--mono);
+  letter-spacing: 0.08em;
+}
+
+.about-index b {
+  color: #c4c0b2;
+  font: 500 clamp(82px, 12vw, 150px)/0.85 var(--display);
+  letter-spacing: -0.1em;
+}
+
+.about-photo {
+  position: relative;
+  min-width: 0;
+  min-height: 360px;
+  margin: 0;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  background: #c7c3b7;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center 48%;
+  filter: saturate(0.72);
+}
+
+.about-photo figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 8px;
+  background: rgba(234, 231, 220, 0.9);
+  color: #55564b;
   font: 8px var(--mono);
-  letter-spacing: 0.06em;
-  color: #77776a;
+  letter-spacing: 0.08em;
 }
 
-.paper-header {
-  border-bottom: 1px solid #d4d1c4;
+.about-copy {
+  align-self: center;
+  padding: 42px clamp(28px, 5vw, 70px);
 }
 
-.paper-header span:first-child {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.paper-main {
-  padding: 32px 7% 28px;
-  flex: 1;
-}
-
-.paper-main .eyebrow {
-  font-size: 9px;
-  margin-bottom: 14px;
-}
-
-.paper-main h3 {
-  font: 500 clamp(29px, 3.5vw, 44px) / 1.1 var(--display);
-  letter-spacing: -0.06em;
+.about-copy .eyebrow {
   margin: 0 0 18px;
 }
 
-.paper-description {
-  font-size: 13px;
-  line-height: 1.85;
-  color: #65665a;
-  max-width: 500px;
-  margin: 0 0 24px;
+.about-intro {
+  max-width: 660px;
+  margin: 0;
+  font: 500 clamp(22px, 3vw, 34px)/1.25 var(--display);
+  letter-spacing: -0.045em;
 }
 
-.paper-tags,
-.tag-list {
+.about-description {
+  max-width: 540px;
+  margin: 18px 0 24px;
+  color: #6d6e62;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.about-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
 }
 
-.paper-tags {
-  margin-top: 27px;
-}
-
-.paper-tags span,
-.tag-list span {
-  border: 1px solid #ceccbf;
-  padding: 6px 8px;
+.about-tags span {
+  padding: 7px 9px;
+  border: 1px solid #c1beaf;
+  color: #66675b;
   font: 8px var(--mono);
-  letter-spacing: 0.03em;
-  color: #65665a;
-}
-
-.paper-footer {
-  border-top: 1px solid #d4d1c4;
-  margin-top: auto;
+  letter-spacing: 0.06em;
 }
 
 
 /* ========================================
-   8. MINI PROJECTS, SKILLS & TIMELINE
-======================================== */
-
-.mini-projects {
-  border-top: 1px solid #d2d0c3;
-}
-
-.mini-projects button {
-  display: grid;
-  grid-template-columns: 70px 1fr 16px;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 0;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #d2d0c3;
-  cursor: pointer;
-  font: 12px var(--display);
-  color: #303127;
-}
-
-.mini-projects button:hover {
-  padding-left: 5px;
-}
-
-.mini-code {
-  font: 9px var(--mono);
-  color: #838477;
-}
-
-.skill-columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.skill-columns > div {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 11px;
-  color: #5f6055;
-}
-
-.skill-columns b {
-  font: 9px var(--mono);
-  letter-spacing: 0.08em;
-  color: #333429;
-  margin-bottom: 4px;
-}
-
-.timeline {
-  display: grid;
-  gap: 20px;
-}
-
-.timeline > div {
-  border-left: 2px solid #a6a58f;
-  padding-left: 14px;
-}
-
-.timeline span {
-  font: 9px var(--mono);
-  color: #77776b;
-}
-
-.timeline b {
-  display: block;
-  font: 500 13px var(--display);
-  margin: 6px 0;
-}
-
-.timeline p {
-  font-size: 11px;
-  line-height: 1.7;
-  color: #68695d;
-  margin: 0;
-}
-
-.contact-email {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #999987;
-  padding: 10px 0;
-  font: 13px var(--display);
-}
-
-.archive-caption {
-  display: flex;
-  justify-content: space-between;
-  margin: 17px 0 0;
-  font: 8px var(--mono);
-  letter-spacing: 0.04em;
-  color: #858577;
-}
-
-.archive-caption span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-
-/* ========================================
-   9. PROJECTS SECTION
+   6. PROJECTS SECTION
 ======================================== */
 
 .work-section {
   padding-top: 90px;
   border-top: 1px solid var(--line);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  border: 1px solid #b9b7a9;
-  background: #e4e1d5;
-  min-width: 0;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px #25261f12;
 }
 
 .project-art {
@@ -815,7 +534,7 @@ button {
   width: 12px;
   height: 12px;
   background: #3c4a4d;
-  opacity: calc(0.15 + (var(--i) % 5) * 0.17);
+  opacity: 0.49;
 }
 
 .pixel-grid i:nth-child(3n) {
@@ -946,60 +665,6 @@ button {
 .tmii-shape b {
   font: 500 38px var(--display);
   letter-spacing: -0.1em;
-}
-
-
-/* Project details and links */
-
-.project-info {
-  padding: 19px 20px 22px;
-}
-
-.project-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font: 8px var(--mono);
-  letter-spacing: 0.05em;
-  color: #77776b;
-}
-
-.project-info h3 {
-  font: 500 25px var(--display);
-  letter-spacing: -0.05em;
-  margin: 13px 0 8px;
-}
-
-.project-info p {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #66675b;
-  max-width: 460px;
-  margin: 0 0 15px;
-}
-
-.tag-list {
-  margin-bottom: 18px;
-}
-
-.tag-list span {
-  font-size: 8px;
-  padding: 5px 7px;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font: 10px var(--mono);
-  text-transform: uppercase;
-  border-bottom: 1px solid #9e9d8d;
-  padding-bottom: 5px;
-  transition: gap 0.2s;
-}
-
-.project-link:hover {
-  gap: 12px;
 }
 
 
@@ -1157,30 +822,7 @@ button {
 
 
 /* ========================================
-   13. LARGE SCREENS
-======================================== */
-
-@media (min-width: 1200px) {
-  .archive-workspace {
-    min-height: 480px;
-  }
-
-  .archive-tab {
-    min-height: 91px;
-  }
-
-  .archive-paper {
-    min-height: 480px;
-  }
-
-  .project-art {
-    height: 270px;
-  }
-}
-
-
-/* ========================================
-   14. TABLET RESPONSIVE
+   13. TABLET RESPONSIVE
 ======================================== */
 
 @media (max-width: 800px) {
@@ -1216,9 +858,26 @@ button {
     bottom: 25px;
   }
 
-  .archive-section,
+  .about-section,
   .work-section {
     padding: 75px 6% 55px;
+  }
+
+  .about-card {
+    grid-template-columns: 0.5fr 0.8fr 1.7fr;
+  }
+
+  .about-index {
+    padding: 22px 18px;
+  }
+
+  .about-photo,
+  .about-photo img {
+    min-height: 340px;
+  }
+
+  .about-copy {
+    padding: 32px 24px;
   }
 
   .section-heading {
@@ -1230,82 +889,6 @@ button {
 
   .section-note br {
     display: none;
-  }
-
-  .archive-workspace {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .folder-stack {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    padding: 0;
-    gap: 4px;
-    margin-bottom: 0;
-  }
-
-  .archive-tab {
-    min-height: 92px;
-    padding: 10px 7px 12px;
-    border: 1px solid #a5a395;
-    border-radius: 3px 3px 0 0;
-    transform: none !important;
-    box-shadow: none;
-  }
-
-  .archive-tab::after {
-    display: none;
-  }
-
-  .archive-tab.is-active {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 -3px 0 #535548 inset;
-  }
-
-  .tab-label {
-    font-size: 10px;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-  }
-
-  .tab-topline {
-    font-size: 7px;
-    gap: 2px;
-  }
-
-  .tab-number {
-    right: 7px;
-    bottom: 6px;
-    font-size: 8px;
-  }
-
-  .stack-base {
-    display: none;
-  }
-
-  .archive-paper {
-    min-height: 390px;
-  }
-
-  .paper-main {
-    padding: 28px 6%;
-  }
-
-  .projects-grid {
-    gap: 16px;
-  }
-
-  .project-art {
-    height: 190px;
-  }
-
-  .project-info {
-    padding: 16px;
-  }
-
-  .project-info h3 {
-    font-size: 22px;
   }
 
   .manifesto {
@@ -1326,7 +909,7 @@ button {
 
 
 /* ========================================
-   15. MOBILE RESPONSIVE
+   14. MOBILE RESPONSIVE
 ======================================== */
 
 @media (max-width: 560px) {
@@ -1391,73 +974,57 @@ button {
     font-size: 39px;
   }
 
-  .folder-stack {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 3px;
-  }
-
-  .archive-tab {
-    min-height: 78px;
-    padding: 9px 5px 12px;
-  }
-
-  .tab-label {
-    font-size: 8px;
-    letter-spacing: -0.03em;
-  }
-
-  .tab-topline {
-    font-size: 6px;
-    letter-spacing: 0;
-  }
-
-  .tab-dot {
-    width: 4px;
-    height: 4px;
-  }
-
-  .paper-header,
-  .paper-footer {
-    padding: 12px;
-    font-size: 7px;
-  }
-
-  .paper-main {
-    padding: 25px 6%;
-  }
-
-  .paper-main h3 {
-    font-size: 32px;
-  }
-
-  .paper-description {
-    font-size: 12px;
-  }
-
-  .skill-columns {
-    grid-template-columns: 1fr 1fr;
-    gap: 17px;
-  }
-
-  .skill-columns > div:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .archive-caption {
-    font-size: 7px;
-  }
-
-  .projects-grid {
+  .about-card {
     grid-template-columns: 1fr;
-    gap: 18px;
   }
 
-  .project-art {
-    height: 225px;
+  .about-index {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px;
+    min-height: 100px;
+    padding: 16px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  .project-info h3 {
-    font-size: 24px;
+  .about-index b {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 72px;
+  }
+
+  .about-index span:last-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .about-photo {
+    grid-row: 2;
+    min-height: 0;
+    height: min(86vw, 390px);
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about-photo img {
+    min-height: 0;
+    height: 100%;
+    object-position: center 44%;
+  }
+
+  .about-copy {
+    grid-row: 3;
+  }
+
+  .about-copy {
+    padding: 26px 20px;
+  }
+
+  .about-intro {
+    font-size: 25px;
   }
 
   .manifesto {
@@ -1523,7 +1090,7 @@ button {
 
 
 /* ========================================
-   16. REDUCED MOTION ACCESSIBILITY
+   15. REDUCED MOTION ACCESSIBILITY
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
