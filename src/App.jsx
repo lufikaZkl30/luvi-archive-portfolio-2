@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, AudioLines, ExternalLink, Github, Menu, Sparkles, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, AudioLines, ExternalLink, Github, Linkedin, Menu, Sparkles, X } from 'lucide-react'
 import profilePhoto from './img/lufika.webp'
 import ProjectsGallery from './components/ProjectsGallery'
 import CertificatesGallery from './components/CertificatesGallery'
@@ -88,7 +88,10 @@ function App() {
     <footer className="footer">
       <a className="brand footer-brand" href="#top"><span className="brand-mark">LA</span><span>LUVI ASAKURA<span className="brand-sub">DIGITAL ARCHIVE / 2026</span></span></a>
       <div className="footer-center"><span>DESIGNED WITH CURIOSITY</span><span>BEKASI, INDONESIA · {clock || '--:--'} WIB</span></div>
-      <div className="footer-links"><a href="https://github.com/lufikaZkl30" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={17}/></a><a href="mailto:hello@luvi.example" aria-label="Email"><ExternalLink size={16}/></a><span>© 2026</span></div>
+      <div className="footer-links">
+        <a href="https://github.com/lufikaZkl30" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={17}/></a>
+        <a href="https://www.linkedin.com/in/lufikaayu" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={17}/></a>
+        <a href="mailto:lufikabgy337@gmail.com" aria-label="Email"><ExternalLink size={16}/></a><span>© 2026</span></div>
     </footer>
   </div>
 }
