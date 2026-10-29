@@ -12,14 +12,13 @@ function ProjectArtwork({ project }) {
         {project.tone === 'project-yt' && <div className="pixel-grid">{Array.from({ length: 30 }, (_, i) => <i key={i} style={{ '--i': i }} />)}</div>}
         {project.tone === 'project-book' && <div className="book-stack"><i /><i /><i /><b>AKSA<br/>BUKU</b></div>}
         {project.tone === 'project-kal' && <div className="map-lines"><i /><i /><i /><b>WEST<br/>KALIMANTAN</b></div>}
-        {project.tone === 'project-tmii' && <div className="tmii-shape"><i /><i /><b>TMII</b></div>}
       </>}
     {!project.previewImage && <span className="archive-placeholder-label">VISUAL PLACEHOLDER</span>}
     <span className="art-status">{project.status}</span>
   </div>
 }
 
-function ProjectCard({ project, onPreview, onOpen }) {
+function ProjectCard({ project, onOpen }) {
   return <article className="archive-display">
     <span className="archive-cord" aria-hidden="true" />
     <div className="archive-panel">
@@ -27,7 +26,7 @@ function ProjectCard({ project, onPreview, onOpen }) {
         <span>{project.archiveNumber}</span>
         <span className="archive-open-label">OPEN_ARCHIVE <ArrowUpRight size={11} /></span>
       </div>
-      <button className="archive-preview-button" onClick={() => onPreview(project)} aria-label={`Preview ${project.title}`}>
+      <button className="archive-preview-button" onClick={() => onOpen(project)} aria-label={`Preview ${project.title}`}>
         <ProjectArtwork project={project} />
         <span className="archive-preview-hint">PREVIEW <ArrowUpRight size={12} /></span>
       </button>
@@ -39,8 +38,7 @@ function ProjectCard({ project, onPreview, onOpen }) {
           {project.stack.map(technology => <span key={technology}>{technology}</span>)}
         </div>
         <div className="archive-panel-actions">
-          <button className="archive-action-primary" onClick={() => onOpen(project)}>VIEW PROJECT <ArrowUpRight size={14} /></button>
-          <button className="archive-action-secondary" onClick={() => onPreview(project)}>PREVIEW</button>
+          <button className="archive-action-primary" onClick={() => onOpen(project)}>ABOUT THIS PROJECT <ArrowUpRight size={14} /></button>
         </div>
       </div>
       <span className="archive-corner archive-corner-top" aria-hidden="true" />
@@ -49,17 +47,8 @@ function ProjectCard({ project, onPreview, onOpen }) {
   </article>
 }
 
-function DetailField({ label, value }) {
-  return <section className="project-detail-field">
-    <h4>{label}</h4>
-    <p>{value || <span className="project-detail-placeholder">Detail belum ditambahkan. Edit data project di <code>src/data/projects.js</code>.</span>}</p>
-  </section>
-}
-
-function ProjectModal({ project, mode, onClose, onNavigate, canNavigate }) {
+function ProjectModal({ project, onClose, onNavigate, canNavigate }) {
   const dialogRef = useRef(null)
-  const isDetail = mode === 'detail'
-  const repositoryIsPlaceholder = project.linkPlaceholder
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
@@ -105,13 +94,13 @@ function ProjectModal({ project, mode, onClose, onNavigate, canNavigate }) {
   return <div className="project-modal-backdrop" onMouseDown={event => {
     if (event.target === event.currentTarget) onClose()
   }}>
-    <section className={`project-modal ${isDetail ? 'is-detail' : 'is-preview'}`} role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabIndex={-1} ref={dialogRef}>
+    <section className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabIndex={-1} ref={dialogRef}>
       <header className="project-modal-header">
-        <span>{project.archiveNumber} / {isDetail ? 'ARCHIVE VIEW' : 'PROJECT OVERVIEW'}</span>
+        <span>{project.archiveNumber} / PROJECT SUMMARY</span>
         <div className="project-modal-controls">
           <button type="button" onClick={() => onNavigate(-1)} disabled={!canNavigate} aria-label="Previous project"><ArrowLeft size={17}/></button>
           <button type="button" onClick={() => onNavigate(1)} disabled={!canNavigate} aria-label="Next project"><ArrowRight size={17}/></button>
-          <button type="button" onClick={onClose} aria-label={isDetail ? 'Close project detail' : 'Close project preview'}><X size={18}/></button>
+          <button type="button" onClick={onClose} aria-label="Close project summary"><X size={18}/></button>
         </div>
       </header>
       <div className="project-modal-content">
@@ -120,51 +109,19 @@ function ProjectModal({ project, mode, onClose, onNavigate, canNavigate }) {
           <div className="project-modal-hero-caption"><span>{project.category}</span><span>{project.year}</span></div>
         </div>
         <div className="project-modal-overview">
-          <p className="project-modal-kicker">DIGITAL ARTIFACT / {project.code}</p>
+          <p className="project-modal-kicker">ABOUT THIS PROJECT / {project.code}</p>
           <h2 id="project-modal-title">{project.title}<span>.</span></h2>
           <p className="project-modal-description">{project.description}</p>
           <div className="archive-tech-list">{project.stack.map(technology => <span key={technology}>{technology}</span>)}</div>
         </div>
-
-        {isDetail ? <>
-          <div className="project-detail-grid">
-            <DetailField label="Problem statement" value={project.problem} />
-            <DetailField label="Solution" value={project.solution} />
-            <DetailField label="My role" value={project.role} />
-            <DetailField label="Design & development process" value={project.process} />
-            <DetailField label="Challenges" value={project.challenges} />
-            <DetailField label="Learnings" value={project.learnings} />
-          </div>
-          <section className="project-detail-field project-feature-list">
-            <h4>Project highlights</h4>
-            {project.features.length
-              ? <ul>{project.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
-              : <p><span className="project-detail-placeholder">Highlights belum ditambahkan. Edit data project di <code>src/data/projects.js</code>.</span></p>}
-          </section>
-          <div className="project-detail-gallery">
-            {project.gallery.length > 0
-              ? project.gallery.map(image => <figure key={image.src}><img src={image.src} alt={image.alt} loading="lazy" /><figcaption>{image.caption}</figcaption></figure>)
-              : <p>Additional screenshots belum ditambahkan. Tambahkan file gambar dan data gallery di <code>src/data/projects.js</code>.</p>}
-          </div>
-          <div className="project-resource-links">
-            {project.link && !repositoryIsPlaceholder
-              ? <a href={project.link} target="_blank" rel="noreferrer">OPEN GITHUB <ArrowUpRight size={14}/></a>
-              : <span>GITHUB LINK — ADD URL IN PROJECT DATA</span>}
-            {project.liveDemo
-              ? <a href={project.liveDemo} target="_blank" rel="noreferrer">OPEN LIVE DEMO <ArrowUpRight size={14}/></a>
-              : <span>LIVE DEMO — NOT PROVIDED</span>}
-          </div>
-        </> : <div className="project-preview-notes">
-          <DetailField label="Project overview" value={project.description} />
-          <DetailField label="Problem statement" value={project.problem} />
-          <DetailField label="My role" value={project.role} />
-          <DetailField label="Project highlights" value={project.features.join(', ')} />
-        </div>}
+        {(project.link && !project.linkPlaceholder) || project.liveDemo ? <div className="project-resource-links">
+          {project.link && !project.linkPlaceholder && <a href={project.link} target="_blank" rel="noreferrer">OPEN PROJECT <ArrowUpRight size={14}/></a>}
+          {project.liveDemo && <a href={project.liveDemo} target="_blank" rel="noreferrer">LIVE DEMO <ArrowUpRight size={14}/></a>}
+        </div> : null}
 
         <footer className="project-modal-footer">
           <button type="button" className="project-return-button" onClick={onClose}><ArrowLeft size={14}/> BACK TO PROJECT ARCHIVE</button>
-          {!isDetail && <button type="button" className="project-open-detail-button" onClick={() => onNavigate('detail')}>OPEN ARCHIVE DETAIL <ArrowUpRight size={14}/></button>}
-          {isDetail && <button type="button" className="project-open-detail-button" onClick={() => onNavigate(1)}>NEXT PROJECT <ArrowRight size={14}/></button>}
+          {canNavigate && <button type="button" className="project-open-detail-button" onClick={() => onNavigate(1)}>NEXT PROJECT <ArrowRight size={14}/></button>}
         </footer>
       </div>
     </section>
@@ -225,13 +182,9 @@ export default function ProjectsGallery({ projects }) {
     viewport.scrollBy({ left: direction * (firstCard.getBoundingClientRect().width + gap), behavior: 'smooth' })
   }
 
-  const openProject = (project, mode) => setSelected({ project, mode })
+  const openProject = project => setSelected({ project })
   const closeProject = useCallback(() => setSelected(null), [])
   const navigateProject = useCallback(direction => {
-    if (direction === 'detail') {
-      setSelected(current => current ? { ...current, mode: 'detail' } : current)
-      return
-    }
     const currentIndex = projects.findIndex(project => project.id === selectedRef.current?.project.id)
     const nextIndex = (currentIndex + direction + projects.length) % projects.length
     setSelected(current => current ? { ...current, project: projects[nextIndex] } : current)
@@ -301,13 +254,13 @@ export default function ProjectsGallery({ projects }) {
       aria-label="Horizontal project archive gallery"
     >
       <div className="archive-track">
-        {projects.map(project => <ProjectCard key={project.id} project={project} onPreview={item => openProject(item, 'preview')} onOpen={item => openProject(item, 'detail')} />)}
+        {projects.map(project => <ProjectCard key={project.id} project={project} onOpen={openProject} />)}
       </div>
     </div>
     <div className="archive-gallery-progress" role="progressbar" aria-label="Project gallery position" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress * 100)}>
       <span style={{ transform: `scaleX(${progress})` }} />
     </div>
     <div className="archive-gallery-footer"><span>END OF INDEX / KEEP EXPLORING</span><span>SCROLL POSITION <b>{String(Math.round(progress * 100)).padStart(2, '0')}%</b></span></div>
-    {selected && <ProjectModal project={selected.project} mode={selected.mode} onClose={closeProject} onNavigate={navigateProject} canNavigate={projects.length > 1} />}
+    {selected && <ProjectModal project={selected.project} onClose={closeProject} onNavigate={navigateProject} canNavigate={projects.length > 1} />}
   </section>
 }
