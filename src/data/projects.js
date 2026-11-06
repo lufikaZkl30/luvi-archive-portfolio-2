@@ -67,7 +67,7 @@ export const projects = [
     year: '2026',
     code: 'AI_001',
     tone: 'project-scope-ai-tiktok',
-    previewImage: '/projects/scope-ai-tiktok.png',
+    previewImage: '/projects/socialscope-ai-tiktok.png',
     description: 'Alat analisis untuk menemukan buzzer dalam iklan dalam product marketing.',
     stack: ['Python', 'TensorFlow', 'TikTok API', 'Data Analysis','Machine Learning','NLP'],
     link: 'https://github.com/lufikaZkl30/SocialScope-AI-TikTok',

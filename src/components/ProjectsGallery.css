@@ -612,7 +612,11 @@
 }
 
 .project-modal-overview .archive-tech-list span {
-  color: #d1cadb;
+  border-color: #a5a395;
+  background: rgba(124, 139, 85, 0.12);
+  color: #35362c;
+  font-size: 9px;
+  font-weight: 500;
 }
 
 .project-preview-notes {
