@@ -12,6 +12,7 @@ function ProjectArtwork({ project }) {
         {project.tone === 'project-yt' && <div className="pixel-grid">{Array.from({ length: 30 }, (_, i) => <i key={i} style={{ '--i': i }} />)}</div>}
         {project.tone === 'project-book' && <div className="book-stack"><i /><i /><i /><b>AKSA<br/>BUKU</b></div>}
         {project.tone === 'project-kal' && <div className="map-lines"><i /><i /><i /><b>WEST<br/>KALIMANTAN</b></div>}
+        {project.tone === 'project-scope-ai-tiktok' && <div className="map-lines"><i /><i /><i /><b>SocialScope AI <br/>(</b></div>}
       </>}
     {!project.previewImage && <span className="archive-placeholder-label">VISUAL PLACEHOLDER</span>}
     <span className="art-status">{project.status}</span>
