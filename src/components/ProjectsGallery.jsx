@@ -129,6 +129,7 @@ function ProjectModal({ project, onClose, onNavigate, canNavigate }) {
   </div>
 }
 
+// Main component for displaying the projects gallery
 export default function ProjectsGallery({ projects }) {
   const viewportRef = useRef(null)
   const dragRef = useRef(null)
