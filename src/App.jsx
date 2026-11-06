@@ -89,7 +89,7 @@ function App() {
 
     <footer className="footer">
       <a className="brand footer-brand" href="#top"><span className="brand-mark">LA</span><span>LUVI ASAKURA<span className="brand-sub">DIGITAL ARCHIVE / 2026</span></span></a>
-      <div className="footer-center"><span>DESIGNED WITH CURIOSITY</span><span>BEKASI, INDONESIA · {clock || '--:--'} WIB</span></div>
+      <div className="footer-center"><span>DESIGNED BY LUVI ASAKURA</span><span>BEKASI, INDONESIA · {clock || '--:--'} WIB</span></div>
       <div className="footer-links">
         <a href="https://github.com/lufikaZkl30" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={17}/></a>
         <a href="https://www.linkedin.com/in/lufikaayu" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={17}/></a>
