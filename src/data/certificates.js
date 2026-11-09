@@ -14,7 +14,7 @@ export const certificates = [
     issuer: 'RevoU',
     date: '26 September 2025',
     file: '/certificates/SECC_lufikaayufatimah_CCSE%20220925-01-1-00009.pdf',
-  },
+  },  
   // Sertifikat (03 )
   {
     id: 'ai-productivity-api',
