@@ -64,4 +64,11 @@ export const certificates = [
     file: '/certificates/codepolitan-Developer%20Handal.pdf',
   },
   // Sertifikat (09 )
+  {
+    id: 'myskill-building-website-with-loveable-ai',
+    title: 'Building Website with Loveable AI',
+    issuer: 'MySkill',
+    date: '29 Oktober 2026',
+    file: '/certificates/Lufika%20Ayu%20Fatimah%20-%20E-Certif%20SC%20Ai%20November%202026.pdf',
+  },
 ]
