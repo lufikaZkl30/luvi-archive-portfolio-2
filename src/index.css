@@ -773,6 +773,13 @@ button {
   transition: background 0.2s, color 0.2s;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .contact-button:hover {
   background: #e8e5d9;
   color: #34372f;
@@ -1067,6 +1074,11 @@ button {
   .contact-button {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .contact-actions {
+    width: 100%;
+    flex-direction: column;
   }
 
   .footer {

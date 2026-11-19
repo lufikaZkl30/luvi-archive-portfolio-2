@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, AudioLines, ExternalLink, Github, Linkedin, Menu, Sparkles, X } from 'lucide-react'
-import profilePhoto from './img/lufika.webp'
+import { ArrowDownRight, ArrowUpRight, AudioLines, Download, ExternalLink, Github, Linkedin, Menu, Sparkles, X } from 'lucide-react'
+import profilePhoto from './img/lufika-pp-linked.webp'
 import ProjectsGallery from './components/ProjectsGallery'
 import CertificatesGallery from './components/CertificatesGallery'
 import ToolsWorkstation from './components/ToolsWorkstation'
@@ -55,10 +55,10 @@ function App() {
           <p className="section-note">The person behind the pixels.<br/>A curious mind, always learning.</p>
         </div>
         <div className="about-card">
-          <div className="about-index"><span>PERSONAL FILE</span><b>001</b><span>LUVI ASAKURA<br/>BEKASI, INDONESIA</span></div>
+          <div className="about-index"><span>PERSONAL FILE</span><b>001</b><span>LUFIKA AYU FATIMAH<br/>BEKASI, INDONESIA</span></div>
           <figure className="about-photo">
-            <img src={profilePhoto} alt="Luvi Asakura" width="640" height="1152" loading="lazy" decoding="async" />
-            <figcaption>FIG. 01 / LUVI</figcaption>
+            <img src={profilePhoto} alt="Lufika Ayu Fatimah" width="1192" height="2116" loading="lazy" decoding="async" />
+            <figcaption>FIG. 01 / LUFIKA</figcaption>
           </figure>
           <div className="about-copy">
             <p className="eyebrow">HELLO, I’M LUFIKA AYU FATIMAH</p>
@@ -83,7 +83,13 @@ function App() {
       <section className="contact-section" id="contact">
         <div className="contact-top"><p className="eyebrow">/ END OF FILE? NOT QUITE.</p><span>STATUS: OPEN TO CONNECTIONS</span></div>
         <h2>Have a good<br/><em>question?</em></h2>
-        <div className="contact-bottom"><p>Let’s talk about design, AI, web projects, or the next thing worth figuring out.</p><a href="mailto:hello@luvi.example" className="contact-button">GET IN TOUCH <ArrowUpRight size={16}/></a></div>
+        <div className="contact-bottom">
+          <p>Let’s talk about design, AI, web projects, or the next thing worth figuring out.</p>
+          <div className="contact-actions">
+            <a href="https://accounts.google.com/AccountChooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fview%3Dcm%26fs%3D1%26to%3Dlufikabgy337%2540gmail.com%26su%3DAjakan%2520Kolaborasi" className="contact-button" target="_blank" rel="noreferrer">LET’S COLLABORATE <ArrowUpRight size={16}/></a>
+            <a href="/certificates/CV_LUFIKA%20AYU%20FATIMAH(AI%20Enginer).pdf" className="contact-button" download="CV-Lufika-Ayu-Fatimah.pdf">DOWNLOAD CV <Download size={16}/></a>
+          </div>
+        </div>
       </section>
     </main>
 
